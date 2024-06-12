@@ -76,6 +76,7 @@ const readvalue=()=>{
                     <button className="btn btn-success" onClick={readvalue}>ADD</button>
                 </div>
                 </center>
+                
             </div>
             </div>
         </div>
