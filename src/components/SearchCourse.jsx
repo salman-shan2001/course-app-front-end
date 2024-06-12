@@ -24,6 +24,22 @@ const SearchCourse = () => {
   
 )
 
+
+const deleteCourse=(id)=>{
+  let input={"_id":id}
+  axios.post("http://localhost:8055/delete",input).then(
+    (response)=>{
+      console.log(response.data)
+      if (response.data.status=="success") {
+        alert("successfuly deleted")
+      } else {
+        alert("error in deletion")
+      }
+    }
+  ).catch().finally()
+}
+
+
 const inputHandler = (event) => {
   changecourse({ ...course, [event.target.name]: event.target.value })
 }
@@ -90,7 +106,7 @@ return (
                   <td>{value.date}</td>
                   <td>{value.venue}</td>
                   <td>
-                    <button className="btn btn-danger">DELETE</button>
+                    <button className="btn btn-danger" onClick={()=>{deleteCourse(value._id)}}>DELETE</button>
                   </td>
                 </tr>
                 }
